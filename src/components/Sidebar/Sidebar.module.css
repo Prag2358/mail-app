@@ -1,0 +1,37 @@
+.Sidebar {
+    grid-area: s;
+    background-color: rgba(168, 216, 234, 0.5);
+    padding: 20px;
+    height: 100vh;
+    min-width: 140px;
+}
+
+.item a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.item a:hover {
+    color: #574b90;
+}
+
+.item a.active {
+    color: #574b90;
+}
+
+@media (max-width: 700px) {
+    .Sidebar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 60px;
+    }
+}
+
+@media (max-width: 500px) {
+    .Sidebar {
+        padding: 20px 10px;
+    }
+}

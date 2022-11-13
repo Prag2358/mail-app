@@ -1,0 +1,17 @@
+.Messages {
+    grid-area: m;
+    padding: 10px 20px;
+    overflow: hidden;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 500px) {
+    .Messages {
+        padding: 10px;
+    }
+
+}

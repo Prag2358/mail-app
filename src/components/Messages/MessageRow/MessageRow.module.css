@@ -1,0 +1,106 @@
+.messageRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+.messageRow__body {
+    border-bottom: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.messageRow:hover {
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.24);
+}
+
+.messageRow__adress {
+    font-size: 13px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 120px;
+    text-overflow: ellipsis;
+}
+
+.messageRow__message {
+    width: 900px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.messageRow__subject,
+.messageRow__description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.messageRow__description {
+    font-weight: 400;
+    color: grey;
+}
+
+.messageRow__time {
+    font-size: 9px;
+    min-width: 150px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.messageRow__delete {
+    font-size: 30px;
+    height: 30px;
+    width: 30px;
+    margin-right: 20px;
+    border: 2px solid black;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+
+    .messageRow {
+        margin-bottom: 10px;
+    }
+
+    .messageRow__adress {
+        overflow: initial;
+    }
+
+    .messageRow__body {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .messageRow__message {
+        width: 85%;
+    }
+
+    .messageRow__description {
+        display: block;
+    }
+
+    .messageRow__time {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .messageRow {
+        margin-bottom: 10px;
+    }
+}
