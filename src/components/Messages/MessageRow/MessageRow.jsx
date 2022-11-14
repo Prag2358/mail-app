@@ -4,12 +4,12 @@ import { useDispatch } from 'react-redux';
 import { selectMail } from '../../../redux/mailSlice';
 
 
-const MessageRow = ({ adress, subject, description, time, direction, deleteButtonType }) => {
+const MessageRow = ({ id, adress, subject, description, time, direction, deleteButtonType }) => {
 
     const dispatch = useDispatch();
     let navigate = useNavigate();
 
-    const deleteMail = () => dispatch(deleteButtonType({ adress, subject, description, time, direction }))
+    const deleteMail = () => dispatch(deleteButtonType({ id, adress, subject, description, time, direction }))
 
     const openMail = () => {
         dispatch(

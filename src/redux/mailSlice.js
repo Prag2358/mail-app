@@ -98,27 +98,38 @@ const mailSlice = createSlice({
             else { alert("Недопустимое минимальное количество символов: адресат - 5, тема - 3, текст письма - 1") }
 
         },
-        removeToTrash(state, action) {
+        removeFromInbox(state, action) {
 
-            state.sentMails = state.sentMails.filter(mail => mail.time !== action.payload.time);
-            state.inboxMails = state.inboxMails.filter(mail => mail.time !== action.payload.time);
+            state.inboxMails = state.inboxMails.filter(mail => mail.id !== action.payload.id);
             state.trashMails.unshift({
-                id: action.payload.id,
+                id: state.trashMails.length + 1,
                 adress: action.payload.adress,
                 subject: action.payload.subject,
                 description: action.payload.description,
-                time: new Date().toISOString(),
+                time: action.payload.time,
+                direction: action.payload.direction
+            })
+        },
+        removeFromSent(state, action) {
+
+            state.sentMails = state.sentMails.filter(mail => mail.id !== action.payload.id);
+            state.trashMails.unshift({
+                id: state.trashMails.length + 1,
+                adress: action.payload.adress,
+                subject: action.payload.subject,
+                description: action.payload.description,
+                time: action.payload.time,
                 direction: action.payload.direction
             })
         },
         removeFromTrash(state, action) {
 
-            state.trashMails = state.trashMails.filter(mail => mail.time !== action.payload.time);
+            state.trashMails = state.trashMails.filter(mail => mail.id !== action.payload.id);
         },
 
     }
 })
 
-export const { selectMail, addMail, removeToTrash, removeFromTrash } = mailSlice.actions;
+export const { selectMail, addMail, removeFromSent, removeFromInbox, removeFromTrash } = mailSlice.actions;
 
 export default mailSlice.reducer;
